@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>indtast dit navn</h1>
+    <input type="text" id="name">
+    <button>tryk</button>
+
+
+    <script>
+        document.querySelector("button").addEventListener("click", button_click);
+
+        function button_click() {
+            let bruger = document.querySelector("#name").value;
+            console.log(`goddag ${bruger}`)
+        }
+
+    </script>
+</body>
+
+</html>
