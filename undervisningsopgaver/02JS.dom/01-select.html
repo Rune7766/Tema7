@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+        <div>
+            <a href="www.kea.dk">kea</a>
+        </div>
+        <div><a href="https://github.com/Rune7766">github</a></div>
+        <div><img src="frog.png"> </div>
+    </div>
+    <script>
+        const content = document.querySelector("#content");
+        const første = document.querySelector("#content div");
+        const anden = document.querySelector("#content div + div +div");
+        const sidste = document.querySelector("#content div + div");
+
+        console.log(content);
+        console.log(første);
+        console.log(anden);
+        console.log(sidste);
+
+    </script>
+</body>
+
+</html>
