@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>fdf</title>
 </head>
 <style>
     .firkant {
@@ -30,6 +30,7 @@
 
     </div>
     <div class="cirkel">
+
     </div>
     <script>
         let firkanturl = 'http://mabe-kea.dk/E19/pics/frog.png';
@@ -37,15 +38,13 @@
         let foxurl = 'http://mabe-kea.dk/E19/pics/fox.png';
 
 
+        document.addEventListener("DOMContentLoaded", start)
 
-        document.addEventListener("DOMContentloaded", start);
-
-        Function start() {
-            console.log(start);
-        }
-        document.querySelector(".firkant").innerHTML = `<img src =${firkanturl} alt="græn frø">`;
-        document.querySelector(".cirkel").innerHTML = `<img src =${cirkelurl} alt="græn frø">`;
-        document.querySelector(".cirkel").innerHTML += `<img src =${foxurl} alt="rød frø">`;
+        function start() {
+            console.log("start");
+            document.querySelector(".firkant").innerHTML = `<img src =${firkanturl} alt="græn frø">`;
+            document.querySelector(".cirkel").innerHTML = `<img src =${cirkelurl} alt="græn frø">`;
+            document.querySelector(".cirkel").innerHTML += `<img src =${foxurl} alt="rød frø">`;
         }
     </script>
 
