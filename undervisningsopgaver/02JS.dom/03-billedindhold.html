@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    .firkant {
+        height: 100px;
+        width: 100px;
+        background-color: green;
+        line-height: 100px;
+        text-align: center;
+
+    }
+
+    .cirkel {
+        height: 100px;
+        width: 100px;
+        background-color: red;
+        border-radius: 50%;
+        line-height: 100px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="firkant">
+
+    </div>
+    <div class="cirkel">
+    </div>
+    <script>
+        let firkanturl = 'http://mabe-kea.dk/E19/pics/frog.png';
+        let cirkelurl = 'http://mabe-kea.dk/E19/pics/pig.png';
+
+        document.querySelector(".firkant").innerHTML = `<img src =${firkanturl} alt="græn frø">`;
+        document.querySelector(".cirkel").innerHTML = `<img src =${cirkelurl} alt="græn frø">`;
+    </script>
+
+</body></html>
