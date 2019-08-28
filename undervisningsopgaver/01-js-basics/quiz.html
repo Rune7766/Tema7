@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :ROOT {
+            --hue-neutral: 200;
+            --hue-wrong: 0;
+            --hue-correct: 145;
+        }
+
+        body {
+            --hue: var(--hue-neutral);
+            padding: 0;
+            margin: 0;
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: hsl(var(--hue), 100%, 20%);
+        }
+
+        body.correct {
+            --hue: var(--hue-correct);
+        }
+
+        body.wrong {
+            --hue: var(--hue-wrong);
+        }
+
+        .container {
+            width: 800px;
+            max-width: 80%;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 0 10px;
+            2px;
+        }
+
+        .btn-grid {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            --hue var(--hue-neutral);
+            border: 1px solid hsl(var(--hue), 100%, 30%);
+            background-color: hsl(var(--hue), 100%, 50%);
+            border-radius: 5px;
+            padding: 5px 10px;
+            color: white;
+            outline: none;
+
+        }
+
+        .btn:hover {
+            border-color: black;
+        }
+
+        .btn.correct {
+            --hue: var(--hue-correct);
+            color: black;
+        }
+
+        .btn.wrong {
+            --hue: var(--hue-wrong);
+        }
+
+        .start-btn,
+        .next-btn {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 10px 20px;
+
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="spørgsmål-container" class="hide">
+
+            <div id="spørgsmål">Spørgsmål
+                <div id="svar-knap" class="btn-grid">
+                    <button class="btn ">svar 1</button>
+                    <button class="btn ">svar 2</button>
+                    <button class="btn">svar 3</button>
+                    <button class="btn">svar 4</button>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">Start</button>
+            <button id="next-btn" class="next-btn btn hide">Start</button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        const startButton = document.getElementById('start-btn')
+        const questioncontainerelement = document.getElementById('spørgsmål-container')
+        const questionsElement = document.getElementById('question')
+        const answarButtonsElement = document.getElementById('svar-knap')
+
+        const shuffeledQuetions, currentQuestionIndex
+
+        startButton.addEventListener('click', startGame)
+
+        function startGame() {
+            console.log('start')
+            startButton.classList.add('hide')
+            shuffeledQuetions = questions.sort(() => Math.random() - .5)
+            currentQuestionIndex = 0
+            questioncontainerelement.classList.remove('hide')
+            setNextQuestion()
+
+        }
+
+        function setNextQuestion() {
+            showQuestion(shuffeledQuetions[currentQuestionIndex])
+
+        }
+
+        function showQuestion()
+
+        function selectAnswar(question) {
+
+        }
+        const questions = [{
+            question: 'hvad drikker møller ?',
+            answars: [{
+                    text: 'øl',
+                    correct: true
+                },
+                {
+                    text: 'rugbrød',
+                    correct: false
+                }
+            ]
+        }]
+    </script>
+</body></html>
