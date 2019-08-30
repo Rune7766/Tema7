@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <article id="dyr">
+        <p></p>
+        <img>
+
+
+    </article>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+
+
+        let dyr = {
+            "Navn": "gris",
+            "type": "pattedyr",
+            "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+            "levested": "svinefarm"
+        }
+
+        let tekst = `Dyr: ${dyr.Navn} type: ${dyr.type} billede: ${dyr.billede} Levested: ${dyr.levested}`
+
+
+        function start() {
+            let p = document.querySelector("p");
+            let img = document.querySelector("img");
+            const gris = img.src = dyr.billede;
+            p.textContent = tekst;
+            img.textContent = img;
+        }
+
+        ;
+
+    </script>
+</body>
+
+</html>
+Den dejlige, alkoholholdige moldaviske fiskesuppe

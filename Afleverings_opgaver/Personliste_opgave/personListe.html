@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Visalle</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            grid-gap: 50px;
+            margin: 50px;
+        }
+
+        img {
+            width: 400px;
+            height: 400px;
+            border: 3px solid;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <section id="liste">
+        <template>
+            <article>
+                <h2></h2> <img src="" alt="">
+                <a></a>
+            </article>
+        </template>
+    </section>
+
+
+
+
+    <script>
+        let personer;
+        const dest = document.querySelector("#liste");
+        const temp = document.querySelector("template");
+        document.addEventListener("DOMContentLoaded", start);
+
+
+        function start() {
+
+            async function getJson() {
+                let jsonData = await fetch("https://spreadsheets.google.com/feeds/list/1Xge7slZ9dEOTCn1Yxl3OE4xgvrXOL8Y_iu3WN1yGB1U/od6/public/values?alt=json");
+                personer = await jsonData.json();
+                //console.log(personer);
+                person1();
+            }
+
+
+
+            function person1() {
+                personer.feed.entry.forEach(person => {
+                    const klon = temp.cloneNode(true).content;
+                    klon.querySelector("h2").textContent = person.gsx$navn.$t;
+                    klon.querySelector("img").src = person.gsx$billede.$t;
+                    klon.querySelector("a").href = `https://github.com`
+                    person.gsx$github.$t;
+                    klon.querySelector("a").textContent += person.gsx$github.$t;
+                    dest.appendChild(klon);
+                })
+            }
+            getJson();
+        }
+    </script>
+
+
+</body></html>
