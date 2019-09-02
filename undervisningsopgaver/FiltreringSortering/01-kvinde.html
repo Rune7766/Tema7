@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Visalle</title>
+    <title>virker</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato:400,900&display=swap" rel="stylesheet">
@@ -11,6 +11,17 @@
 
 
     <style>
+        .menu {
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px;
+            background-color: white;
+            border-radius: 10%;
+            color: black;
+        }
+
         a {
             color: white;
             text-transform: uppercase;
@@ -58,16 +69,25 @@
             height: 400px;
             border: 3px solid white;
         }
+
     </style>
 
 
 
 </head>
 <header>
-    <h1>Personliste</h1>
+    <div class="menu">
+        <nav>
+            <button class="filter valgt" data-køn="andet">Alle</button>
+            <button class="filter" data-køn="m">Mænd</button>
+            <button class="filter" data-køn="k">Kvinder</button>
+            <h1>Personliste</h1>
+        </nav>
+    </div>
 </header>
 
 <body>
+
 
 
     <section id="liste">
@@ -86,7 +106,10 @@
         let personer;
         const dest = document.querySelector("#liste");
         const temp = document.querySelector("template");
+        let filter = "k"
         document.addEventListener("DOMContentLoaded", start);
+
+
 
 
         function start() {
@@ -102,18 +125,23 @@
 
             function person1() {
                 personer.feed.entry.forEach(person => {
-                    const klon = temp.cloneNode(true).content;
-                    klon.querySelector("h2").textContent = person.gsx$navn.$t;
-                    klon.querySelector("img").src = person.gsx$billede.$t;
-                    klon.querySelector("a").href = `https://github.com`
-                    person.gsx$github.$t;
-                    klon.querySelector("a").textContent += person.gsx$github.$t;
-                    dest.appendChild(klon);
+                    if (person.gsx$køn.$t == filter) {
+                        const klon = temp.cloneNode(true).content;
+                        klon.querySelector("h2").textContent = person.gsx$navn.$t;
+                        klon.querySelector("img").src = person.gsx$billede.$t;
+                        klon.querySelector("a").href = `https://github.com`
+                        person.gsx$github.$t;
+                        klon.querySelector("a").textContent += person.gsx$github.$t;
+                        dest.appendChild(klon);
+                    }
                 })
             }
             getJson();
         }
+
     </script>
 
 
-</body></html>
+</body>
+
+</html>

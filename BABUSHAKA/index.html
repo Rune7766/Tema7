@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Restaurant BABUSHKA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            padding: 0;
+            margin: auto;
+        }
+
+        p {
+            font-size: 5vw;
+        }
+
+        section {
+
+            display: grid;
+            grid-template-columns: 300px 300px 300px;
+            grid-gap: 50px;
+            margin: 50px;
+            align-content: center;
+
+        }
+
+        img {
+            width: 300px;
+            height: 300px;
+            border: 3px solid;
+        }
+
+    </style>
+</head>
+<header>
+    <h1>Babushka menu kort</h1>
+    <nav>
+        <button class="Forretter">forretter</button>
+        <button class="Hovedretter">Hovedretter</button>
+        <button class="Desserter">Desserter</button>
+        <button class="Sideorders">sideorders</button>
+        <button class="Drikkevare">Drikkevare</button>
+    </nav>
+</header>
+
+
+
+<body>
+
+    <section id="liste">
+        <template>
+            <article>
+                <h2></h2>
+                <h3></h3>
+                <p></p>
+                <img>
+                <p class="beskrivese"></p>
+            </article>
+        </template>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        let mad = []
+        document.addEventListener("DOMContentLoaded", start);
+        const dest = document.querySelector("#liste");
+        const temp = document.querySelector("template");
+
+
+        function start() {
+
+            async function getJson() {
+                let jsonData = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
+                mad = await jsonData.json();
+                //console.log(mad);
+                vismad();
+            }
+
+            function vismad() {
+                mad.feed.entry.forEach(mad => {
+                    const klon = temp.cloneNode(true).content;
+                    klon.querySelector("h2").textContent = mad.gsx$navn.$t;
+                    klon.querySelector("h3").textContent = mad.gsx$kort.$t;
+                    klon.querySelector("p").textContent = mad.gsx$pris.$t;
+                    klon.querySelector("p").textContent = mad.gsx$pris.$t;
+                    klon.querySelector("img").src = "imgs/small/boef-sm.jpg"
+
+
+                    dest.appendChild(klon);
+                })
+            }
+            getJson();
+        }
+
+    </script>
+    <!--// klon.querySelector("img").src = `imgs/small/${mad.gst$billede.$t`;-->
+
+</body>
+
+</html>
